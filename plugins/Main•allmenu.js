@@ -1,6 +1,5 @@
 let handler = async (m, { conn }) => {
-let taguser = '@' + m.sender.split("@s.whatsapp.net")
-  let txt = `*HOLA HUMANO! : \`${taguser}\`*
+  let txt = `*HOLA HUMANO! : \`${conn.getName(m.sender)}\`*
 
 *\`ɪɴꜰᴏ\`*
 
@@ -31,9 +30,6 @@ let taguser = '@' + m.sender.split("@s.whatsapp.net")
 
 ☆ *ᴀʙʀᴀᴢᴀʀ <@ᴛᴀɢ>*
 ☆ *ᴀᴄᴇʀᴛɪᴊᴏ*
-☆ *ɢᴀʏ <@ᴛᴀɢ>*
-☆ *ᴘᴜᴛᴀ <@ᴛᴀɢ>*
-☆ *ᴍᴀɴᴄᴏ <@ᴛᴀɢ>*
 ☆ *ꜱᴏɴʀᴏᴊᴀʀꜱᴇ <@ᴛᴀɢ>*
 ☆ *ᴄᴏɴꜱᴇᴊᴏ*
 ☆ *ᴇɴᴀᴍᴏʀᴀᴅᴀ <@ᴛᴀɢ>*
@@ -142,8 +138,12 @@ let taguser = '@' + m.sender.split("@s.whatsapp.net")
 m.react('✅');
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.ibb.co/5xMs19nx/file.jpg');
 
-await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
+/* await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 };
+*/
+let bann = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI';
+
+conn.sendMessage(m.chat, { image: { url: bann }, caption: txt }, { quoted: m });
 
 handler.command = ['allmenu', 'menu', 'menuall', 'menucompleto'];
 
