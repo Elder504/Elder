@@ -30,6 +30,6 @@ let handler = async (m, { conn, text }) => {
   }
 };
 
-handler.command = /^(ytdlmp3)$/i;
+handler.command = /^(play)$/i;
 
 export default handler;
