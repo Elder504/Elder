@@ -1,8 +1,7 @@
-
 let handler = async (m, { conn }) => {
   let txt = `*> © ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr*
   
-*HOLA HUMANO! : +${global.ofcbot}*
+*HOLA HUMANO! : +${conn.getName(m.sender)}*
 
 *\`ɪɴꜰᴏ\`*
 
