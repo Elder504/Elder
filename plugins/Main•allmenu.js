@@ -1,7 +1,5 @@
 let handler = async (m, { conn }) => {
-  let txt = `*> © ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr*
-  
-*HOLA HUMANO! : \`${conn.getName(m.sender)}\`*
+  let txt = `*HOLA HUMANO! : \`${conn.getName(m.sender)}\`*
 
 *\`ɪɴꜰᴏ\`*
 
@@ -134,7 +132,8 @@ let handler = async (m, { conn }) => {
  *\`ᴀᴅᴍɪɴ\`*
 
 ☆ *ᴀᴅᴅᴘʀᴇᴍ2 <@ᴛᴀɢ> <ᴅᴀʏꜱ>*
-☆ *ᴀᴅᴅʏᴇɴ2 <@ᴛᴀɢ>*`.trim();
+☆ *ᴀᴅᴅʏᴇɴ2 <@ᴛᴀɢ>*
+> *© ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr*`.trim();
 
 m.react('✅');
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.ibb.co/5xMs19nx/file.jpg');
