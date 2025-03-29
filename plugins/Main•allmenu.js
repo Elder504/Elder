@@ -141,8 +141,9 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 /* await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 };
 */
+let bann = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI';
 
-conn.sendMessage(m.chat, { image: { url: banner }, caption: txt }, { quoted: m });
+conn.sendMessage(m.chat, { image: { url: bann }, caption: txt }, { quoted: m });
 
 handler.command = ['allmenu', 'menu', 'menuall', 'menucompleto'];
 
