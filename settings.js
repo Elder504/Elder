@@ -44,7 +44,7 @@ global.jadi = 'JadiBot'
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.prefix = '/'
-global.banner = 'https://ibb.co/tPvWQ5B3.jpg'
+global.banner = 'https://i.ibb.co/5xMs19nx/file.jpg'
 global.botname = '𝗛𝗡 𝗘𝗟𝗗𝗘𝗥-𝗕𝗢𝗧'
 global.author = 'ᴄʀᴇᴀᴛᴏʀ | ᴇʟᴅᴇʀ-ʙᴏᴛ'
 global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr'
