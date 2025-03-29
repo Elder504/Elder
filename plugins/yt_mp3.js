@@ -30,6 +30,6 @@ let handler = async (m, { conn, text }) => {
   }
 };
 
-handler.command = /^(play)$/i;
+handler.command = /^(music)$/i;
 
 export default handler;
