@@ -30,6 +30,9 @@ let handler = async (m, { conn }) => {
 
 ☆ *ᴀʙʀᴀᴢᴀʀ <@ᴛᴀɢ>*
 ☆ *ᴀᴄᴇʀᴛɪᴊᴏ*
+☆ *ɢᴀʏ <@ᴛᴀɢ>*
+☆ *ᴘᴜᴛᴀ <@ᴛᴀɢ>*
+☆ *ᴍᴀɴᴄᴏ <@ᴛᴀɢ>*
 ☆ *ꜱᴏɴʀᴏᴊᴀʀꜱᴇ <@ᴛᴀɢ>*
 ☆ *ᴄᴏɴꜱᴇᴊᴏ*
 ☆ *ᴇɴᴀᴍᴏʀᴀᴅᴀ <@ᴛᴀɢ>*
@@ -138,11 +141,8 @@ let handler = async (m, { conn }) => {
 m.react('✅');
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.ibb.co/5xMs19nx/file.jpg');
 
-/* await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
+await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 };
-*/
-
-conn.sendMessage(m.chat, { image: { url: banner }, caption: txt }, { quoted: m });
 
 handler.command = ['allmenu', 'menu', 'menuall', 'menucompleto'];
 
