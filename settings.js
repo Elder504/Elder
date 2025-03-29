@@ -17,7 +17,7 @@ global.confirmCode = ''
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.owner = [
-   ['50493374445', 'Ian', true],
+   ['50493374445', '𝐄𝐋𝐃𝐄𝐑', true],
    ['5219981156963', 'Oscar', true],
 ]
 
@@ -44,7 +44,7 @@ global.jadi = 'JadiBot'
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.prefix = '/'
-global.banner = 'https://photos.app.goo.gl/qGByzFCr1X1m5Ddx5'
+global.banner = 'https://qu.ax/oUCCf.jpg'
 global.botname = '𝗛𝗡 𝗘𝗟𝗗𝗘𝗥-𝗕𝗢𝗧'
 global.author = 'ᴄʀᴇᴀᴛᴏʀ | ᴇʟᴅᴇʀ-ʙᴏᴛ'
 global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr'
