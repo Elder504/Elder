@@ -1,5 +1,4 @@
 let handler = async (m, { conn }) => {
-let mention = `@${m.sender.split('@')[0]}`;
   let txt = `*HOLA HUMANO! : \`${mention}\`*
 
 *\`ɪɴꜰᴏ\`*
