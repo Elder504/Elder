@@ -2,7 +2,7 @@
 let handler = async (m, { conn }) => {
   let txt = `*> © ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr*
   
-*HOLA HUMANO! : '%name*'
+*HOLA HUMANO! : ${m.messageStubParameters*
 
 *\`ɪɴꜰᴏ\`*
 
