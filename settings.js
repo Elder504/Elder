@@ -34,7 +34,7 @@ global.libreria = 'Baileys'
 global.baileys = 'V 6.7.8'
 global.vs = '1.0.1'
 global.languaje = 'Español'
-global.nameqr = '𝗬𝘂𝘇𝗮𝗸𝗶 𝗧𝘀𝘂𝗸𝗮𝘀𝗮'
+global.nameqr = '𝗘𝗹𝗱𝗲𝗿-𝗯𝗼𝘁'
 global.sessions = 'BotSession'
 global.jadi = 'JadiBot'
 
