@@ -1,5 +1,6 @@
 let handler = async (m, { conn }) => {
-  let txt = `*HOLA HUMANO! : \`${mention}\`*
+let taguser = '@' + m.sender.split("@s.whatsapp.net")
+  let txt = `*HOLA HUMANO! : \`${taguser}\`*
 
 *\`ɪɴꜰᴏ\`*
 
