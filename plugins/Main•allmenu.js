@@ -144,6 +144,7 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 let bann = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI';
 
 conn.sendMessage(m.chat, { image: { url: bann }, caption: txt }, { quoted: m });
+}
 
 handler.command = ['allmenu', 'menu', 'menuall', 'menucompleto'];
 
