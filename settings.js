@@ -45,9 +45,9 @@ global.jadi = 'JadiBot'
 
 global.prefix = '/'
 global.banner = 'https://qu.ax/ucKST.jpg'
-global.botname = '𝗬𝘂𝘇𝗮𝗸𝗶 𝗧𝘀𝘂𝗸𝗮𝘀𝗮'
-global.author = 'ᴄʀᴇᴀᴛᴏʀ | ɪᴀɴ.xʏᴢ'
-global.dev = '© ɪᴀɴ.xʏᴢ ᴄᴏᴘʏʀɪɢʜᴛ ʀᴇꜱᴇʀᴠᴇᴅ'
+global.botname = '𝗛𝗡 𝗘𝗟𝗗𝗘𝗥-𝗕𝗢𝗧'
+global.author = 'ᴄʀᴇᴀᴛᴏʀ | ᴇʟᴅᴇʀ-ʙᴏᴛ'
+global.dev = '© > © ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr'
 global.currency = 'Yenes'
 global.botStatus = true;
 global.welcome = '𝗛𝗲𝗹𝗹𝗼, 𝘄𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽\n𝗥𝗲𝗮𝗱 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽 𝗱𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻'
