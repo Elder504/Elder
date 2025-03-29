@@ -138,7 +138,7 @@ let handler = async (m, { conn }) => {
 ☆ *ᴀᴅᴅʏᴇɴ2 <@ᴛᴀɢ>*`.trim();
 
 m.react('✅');
-let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://photos.app.goo.gl/qGByzFCr1X1m5Ddx5.jpg');
+let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.ibb.co/5xMs19nx/file.jpg');
 
 await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 };
