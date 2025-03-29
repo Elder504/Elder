@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-  let txt = `*HOLA HUMANO! : \`${conn.getName(m.sender)}\`*
+  let txt = `*HOLA HUMANO! : \`@${mentionedUser.split('@')[0]}\`*
 
 *\`ɪɴꜰᴏ\`*
 
@@ -140,6 +140,7 @@ let handler = async (m, { conn }) => {
 
 m.react('✅');
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://i.ibb.co/5xMs19nx/file.jpg');
+let mentionedUser = m.mentionedJid[0];
 
 await conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: { title: botname, body: dev, thumbnailUrl: banner, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 };
