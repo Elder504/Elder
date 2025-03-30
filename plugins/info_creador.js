@@ -1,57 +1,46 @@
-import PhoneNumber from 'awesome-phonenumber'
+import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(who).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
-let biografia = await conn.fetchStatus('5493876639332' +'@s.whatsapp.net').catch(_ => 'Sin Biografía')
-let biografiaBot = await conn.fetchStatus(`${conn.user.jid.split('@')[0]}` +'@s.whatsapp.net').catch(_ => 'Sin Biografía')
-let bio = biografia.status?.toString() || 'Sin Biografía'
-let biobot = biografiaBot.status?.toString() || 'Sin Biografía'
-let name = await conn.getName(who)
+   await m.react('🎩');
 
-  await sendContactArray(conn, m.chat, [
-     [`${numc}`, `ELDER-BOT`, `posadaselder2806@gmail.com`, author, correo, `🇭🇳 HONDURAS`, `${global.botname}`, bio]
-], m)
-  } 
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    let name = await conn.getName(who);
+    let edtr = `@${m.sender.split`@`[0]}`;
+    let username = conn.getName(m.sender);
 
-handler.command = ['owner','creador']
+    // VCARD
+    let list = [{
+        displayName: "Elder-Ofc 🎩",
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nFN: ᴇʟᴅᴇʀ-ᴏғɪᴄɪᴀʟ\nitem1.TEL;waid=50493374445:50493374445\nitem1.X-ABLabel:Número\nitem2.EMAIL;type=INTERNET: posadaselder2806@gmail.com\nitem2.X-ABLabel:Email\nitem3.X-ABLabel:Internet\nitem4.ADR:;; Honduras;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
+    }];
 
-export default handler
-
-async function sendContactArray(conn, jid, data, quoted, options) {
-        if (!Array.isArray(data[0]) && typeof data[0] === 'string') data = [data]
-                let contacts = []
-        for (let [number, name, isi, isi1, isi2, isi3, isi4, isi5] of data) {
-            number = number.replace(/[^0-9]/g, '')
-            let njid = number + '@s.whatsapp.net'
-            let biz = await conn.getBusinessProfile(njid).catch(_ => null) || {}
-            let vcard = `
-BEGIN:VCARD
-VERSION:3.0
-N:Sy;Bot;;;
-FN:${name.replace(/\n/g, '\\n')}
-item.ORG:${isi}
-item1.TEL;waid=${number}:${PhoneNumber('+' + number).getNumber('international')}
-item1.X-ABLabel:${isi1}
-item2.EMAIL;type=INTERNET:${isi2}
-item2.X-ABLabel:🌵 Correo Electronico
-item3.ADR:;;${isi3};;;;
-item3.X-ABADR:ac
-item3.X-ABLabel:🌴 Pais
-item4.URL:${isi4}
-item4.X-ABLabel:Website
-item5.X-ABLabel:${isi5}
-END:VCARD`.trim()
-            contacts.push({ vcard, displayName: name })
-        }
-        return await conn.sendMessage(jid, {
-            contacts: {
-                displayName: (contacts.length > 1 ? `2013 kontak` : contacts[0].displayName) || null,
-                contacts,
-            }
+    await conn.sendMessage(m.chat, {
+        contacts: {
+            displayName: `${list.length} Contacto`,
+            contacts: list
         },
-        {
-            quoted,
-            ...options
-        })
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: 'һ᥆ᥣᥲ s᥆ᥡ ᥱᥣძᥱr-᥆𝖿ᥴ ᥱᥣ mᥱȷ᥆r',
+                body: dev,
+                thumbnailUrl: 'https://i.ibb.co/5xMs19nx/file.jpg',
+                sourceUrl: 'https://wa.me/50487421142?text=Vengo+Del+Comando+.owner',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
         }
+    }, {
+        quoted: m
+    });
+
+    let txt = `👋 *Hola \`${username}\` este es*\n*el contacto de mi creador*`;
+
+    await conn.sendMessage(m.chat, { text: txt });
+};
+
+handler.help = ['owner', 'creator'];
+handler.tags = ['main'];
+handler.command = /^(owner|creator|creador|dueño)$/i;
+
+export default handler;
