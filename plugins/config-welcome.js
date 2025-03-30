@@ -10,6 +10,6 @@ export async function before(m, {conn, participants, groupMetadata}) {
 
  if (chat.welcome && m.messageStubType == 27) {
     let welcome = `*Hola ✦ @${m.messageStubParameters[0].split`@`[0]}*\n\n${global.welcome}`
-await conn.sendMini(m.chat, welcome, img, img)
+await conn.sendMini(m.chat, welcome, )
   }
 }
