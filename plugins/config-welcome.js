@@ -16,7 +16,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     try {
       const welcomeImage = await new WelcomeLeave()
-        .setAvatar(await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'welcome'))
+        .setAvatar(await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'image'))
         .setBackground("image", "https://qu.ax/kiBjo.jpg")
         .setTitle("Bienvenido")
         .setDescription(welcome)
