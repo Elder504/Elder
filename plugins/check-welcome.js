@@ -6,7 +6,7 @@ let handler = async (m, { conn }) => {
   m.reply(`${global.welcome}`);
 };
 
-handler.command = ['check --welc'];
+handler.command = ['--welc'];
 handler.isAdmin = true;
 
 export default handler;
