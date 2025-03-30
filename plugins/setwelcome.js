@@ -21,8 +21,15 @@ export async function before(m, { conn, participants, groupMetadata }) {
 }
 
 let handler = async (m, { conn, isRowner }) => {
-  const newWelcome = m.text.trim().split(' ').slice(1).join(' ');
+  const args = m.text.trim().split(' ').slice(1);
+  const option = args[0];
 
+  if (option === '--check') {
+    return m.reply(`*✦ Mensaje de bienvenida actual:*
+${global.welcome || '*No se ha establecido un mensaje de bienvenida*'}`);
+  }
+
+  const newWelcome = args.join(' ');
   if (!newWelcome) {
     return m.reply('*✦ Proporcione un mensaje de bienvenida*');
   }
