@@ -1,6 +1,8 @@
 let handler = async (m, { conn }) => {
  let txt = `*HOLA HUMANO! : \`${conn.getName(m.sender)}\`*
 
+» 𝘉𝘪𝘦𝘯𝘷𝘦𝘯𝘪𝘥𝘰, 𝘦𝘴𝘵𝘦 𝘦𝘴 𝘶𝘯 𝘮𝘦𝘯𝘶́ 𝘳𝘦𝘴𝘶𝘮𝘪𝘥𝘰 𝘥𝘦 𝘵𝘰𝘥𝘰 𝘭𝘰 𝘲𝘶𝘦 𝘤𝘰𝘯𝘵𝘪𝘦𝘯𝘦 𝘌𝘭𝘥𝘦𝘳-𝘣𝘰𝘵.
+
 *\`ɪɴꜰᴏ\`*
 
 ☆ *ᴘᴇʀꜰɪʟ*
