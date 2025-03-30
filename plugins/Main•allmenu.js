@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-  let txt = `*HOLA HUMANO! : \`${conn.getName(m.sender)}\`*
+  let txt = `*HOLA HUMANO! : \`${conn.Getname(m.sender)}\`*
 
 *\`ɪɴꜰᴏ\`*
 
