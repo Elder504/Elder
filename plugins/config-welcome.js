@@ -1,10 +1,9 @@
 import { WAMessageStubType } from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
-import { WelcomeLeave } from 'canvafy';
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
-  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'welcome');
+  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60');
   let img = await (await fetch(pp)).buffer();
 
   let chat = global.db.data.chats[m.chat];
@@ -14,21 +13,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
       .replace('+tag', `@${m.messageStubParameters[0].split('@')[0]}`)
       .replace('+description', groupMetadata.desc || 'Sin descripción');
 
-    try {
-      const welcomeImage = await new WelcomeLeave()
-        .setAvatar(await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'image'))
-        .setBackground("image", "https://qu.ax/kiBjo.jpg")
-        .setTitle("Bienvenido")
-        .setDescription(welcome)
-        .setBorder("#2a2e35")
-        .setAvatarBorder("#2a2e35")
-        .setOverlayOpacity(0.3)
-        .build();
-
-      await conn.sendMessage(m.chat, { image: welcomeImage, caption: welcome });
-    } catch (error) {
-      console.error('Error', error);
-      await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
-    }
+    await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
   }
 }
