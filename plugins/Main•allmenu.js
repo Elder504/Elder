@@ -1,7 +1,8 @@
 let handler = async (m, { conn }) => {
+let tag = `@${m.sender.split('@')[0]}`;
  let txt = `╔═══════════════╗
 ┇➤ 𝙃𝙊𝙇𝘼, 𝙃𝙐𝙈𝘼𝙉𝙊
-┇ *\`${conn.getName(m.sender)}\`* 
+┇ *\`${tag}\`* 
 ╚═══════════════╝
 
 » 𝘉𝘪𝘦𝘯𝘷𝘦𝘯𝘪𝘥𝘰, 𝘦𝘴𝘵𝘦 𝘦𝘴 𝘶𝘯 𝘮𝘦𝘯𝘶́ 𝘳𝘦𝘴𝘶𝘮𝘪𝘥𝘰 𝘥𝘦 𝘵𝘰𝘥𝘰 𝘭𝘰 𝘲𝘶𝘦 𝘤𝘰𝘯𝘵𝘪𝘦𝘯𝘦 𝘌𝘭𝘥𝘦𝘳-𝘣𝘰𝘵.
@@ -148,8 +149,13 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 */
 let bann = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI';
 
-conn.sendMessage(m.chat, { image: { url: bann }, caption: txt }, { quoted: m });
+ conn.sendMessage(m.chat, { 
+    image: { url: bann }, 
+    caption: txt, 
+    mentions: [m.sender]
+}, { quoted: m });
 }
+
 
 handler.command = ['allmenu', 'menu', 'menuall', 'menucompleto'];
 
