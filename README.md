@@ -12,7 +12,7 @@
 - [x] Juego RPG
 ---------
 ## [Contactos](https://github.com/ianalejandrook14x/itsuki)
- <a href="https://wa.me/543876639332"><img alt="Ianalejandrook14x" src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>    
+ <a href="https://wa.me/50493374445"><img alt="Ianalejandrook14x" src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>    
  
 ---------
 ![github stats](https://github-readme-stats.vercel.app/api?username=ianalejandrook14x&show_icons=true&theme=chartreuse-dark)
