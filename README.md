@@ -19,4 +19,4 @@
 <div align="center">
   <h1 align="center">𝗣𝗿𝗼𝗽𝗶𝗲𝘁𝗮𝗿𝗶𝗼 𝗱𝗲𝗹 𝗯𝗼𝘁</h1>
 
-![Menu](https://i.ibb.co/5xMs19nx/file.jpg).jpg)
+![Menu](https://i.ibb.co/5xMs19nx/file.jpg)
