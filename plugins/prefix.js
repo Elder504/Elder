@@ -9,7 +9,7 @@ const handler = async (m, { conn }) => {
     const groups = Object.keys(conn.chats).filter(v => v.endsWith('@g.us')).length;
     const chatsP = Object.keys(conn.chats).filter(v => v.endsWith('@s.whatsapp.net')).length;
     const tiempo = moment(global.startTime).format('DD/MM/YYYY HH:mm:ss');
-    const hrs = moment.tz('Sur/Honduras/Tegucigalpa').format('HH:mm:ss');
+    const hrs = moment.tz('America/Argentina/Buenos_Aires').format('HH:mm:ss');
 
     let bann = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI';
     let tag = `@${m.sender.split('@')[0]}`;
