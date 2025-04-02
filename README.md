@@ -1,6 +1,6 @@
 # HN ELDER ✧
 > [!IMPORTANT]\
-> Este proyecto **todavia sigue en desarrollo por lo que pueda que no funcione correctamente en ciertos comandos**, creador y desarrollador `ianalejandrook15x`.
+> Este proyecto **todavia sigue en desarrollo por lo que pueda que no funcione correctamente en ciertos comandos**, creador y desarrollador `elderposadas028@gmail.com`.
 
 ## [Pronto en el bot](https://github.com/ianalejandrook14x/itsuki)
 - [x] Configuración de grupo
