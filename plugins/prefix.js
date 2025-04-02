@@ -21,7 +21,7 @@ const handler = async (m, { conn }) => {
     mensaje += `*Grupos Unidos:* ${groups}\n\n`;
     mensaje += `*Chats Privados:* ${chatsP}\n\n`;
     mensaje += `*Último Reinicio:* ${tiempo}\n\n`;
-    mensaje += `*Zona Horaria:* ${hrs}\n\n`;
+    mensaje += `*Zona Horaria:* ${hr}\n\n`;
 
     conn.sendMessage(m.chat, { 
         image: { url: bann }, 
