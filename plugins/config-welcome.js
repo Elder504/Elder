@@ -1,5 +1,6 @@
 import { WAMessageStubType } from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
+import sharp from 'sharp';
 
 export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return !0;
@@ -13,6 +14,15 @@ export async function before(m, { conn, participants, groupMetadata }) {
       .replace('+tag', `@${m.messageStubParameters[0].split('@')[0]}`)
       .replace('+description', groupMetadata.desc || 'Sin descripción');
 
-    await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
+    try {
+      const extendedImage = await sharp(img)
+        .resize({ width: 1000, height: 1000, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+        .toBuffer();
+
+      await conn.sendMini(m.chat, redes, dev, welcome, extendedImage, extendedImage, redeshost);
+    } catch (error) {
+      console.error('Error', error);
+      await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
+    }
   }
 }
