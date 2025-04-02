@@ -23,5 +23,5 @@ handler.help = ['unbanuser <@tag>'];
 handler.command = ['unbanuser'];
 handler.tags = ['owner'];
 handler.owner = true;
-handler.group = true
+handler.group = true;
 export default handler;
