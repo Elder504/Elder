@@ -35,7 +35,7 @@ global.baileys = 'V 6.7.8'
 global.vs = '1.0.1'
 global.languaje = 'Español'
 global.nameqr = '𝗘𝗹𝗱𝗲𝗿-𝗯𝗼𝘁'
-global.sessions = 'BotSession'
+global.sessions = 'ElderSession'
 global.jadi = 'JadiBot'
 global.prefix = '.'
 
