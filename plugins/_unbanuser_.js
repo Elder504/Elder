@@ -1,27 +1,33 @@
-const handler = async (m, { conn, args, text, usedPrefix, command }) => {
-    let user;
-    let db = global.db.data.users;
-    if (m.quoted) {
-        user = m.quoted.sender;
-    } else if (args.length >= 1) {
-        user = args[0].replace('@', '') + '@s.whatsapp.net';
-    } else {
-        await conn.reply(m.chat, `🚩 Etiqueta o responde al mensaje del usuario que quieras Desbanear, Ejemplo:\n> → *${usedPrefix}unbanuser <@tag>*`, m);
-        return;
+let handler = async (m, { conn, text, mentionedJid }) => {
+    let who;
+
+    if (mentionedJid?.[0]) {
+        who = mentionedJid[0];
+    } else if (text) {
+        let cleanedNumber = text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+        who = cleanedNumber;
     }
-    if (db[user]) {
-        db[user].banned = false;
-        db[user].banRazon = '';
-        const nametag = await conn.getName(user);
-        const nn = conn.getName(m.sender);
-        await conn.reply(m.chat, `✅ ᴇʟ ᴜsᴜᴀʀɪᴏ *${nametag}* ʜᴀ sɪᴅᴏ ᴅᴇsʙᴀɴᴇᴀᴅᴏ.`, m, { mentionedJid: [user] });
-    } else {
-        await conn.reply(m.chat, `🚩 El usuario no está registrado.`, m);
+
+    if (!who) {
+        return conn.reply(m.chat, "*Menciona al usuario o escirbe su número*", m);
     }
+
+    let users = global.db?.data?.users || {};
+
+    if (!users[who]) {
+        return conn.reply(m.chat, `*El usuario @${who.split('@')[0]} no se encuentra la base de datos.*`, m, { mentions: [who] });
+    }
+
+    if (!users[who].banned) {
+        return conn.reply(m.chat, `✦ *El usuario @${who.split('@')[0]} no está baneado.*`, m, { mentions: [who] });
+    }
+
+    users[who].banned = false;
+
+    conn.reply(m.chat, `✦ *El usuario @${who.split('@')[0]} ha sido desbaneado.*`, m, { mentions: [who] });
 };
-handler.help = ['unbanuser <@tag>'];
+
 handler.command = ['unbanuser'];
-handler.tags = ['owner'];
-handler.owner = true;
-handler.group = true;
+handler.rowner = true;
+
 export default handler;
