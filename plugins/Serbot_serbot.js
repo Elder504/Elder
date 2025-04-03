@@ -163,12 +163,12 @@ loadSubbots().catch(console.error);
 // Handler principal
 let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
   if (!global.db.data.settings[conn.user.jid].jadibotmd) {
-    return conn.reply(msg.chat, "*❀ Este Comando está deshabilitado por mi creador.*", msg, rcanal);
+    return conn.reply(msg.chat, "*❀ Este Comando está deshabilitado por mi creador.*", , );
   }
 
   // Verificar límite de subbots
   if (global.conns.length >= MAX_SUBBOTS) {
-    return conn.reply(msg.chat, `*❀ Lo siento, se ha alcanzado el límite de ${MAX_SUBBOTS} subbots. Por favor, intenta más tarde.*`, msg, rcanal);
+    return conn.reply(msg.chat, `*❀ Lo siento, se ha alcanzado el límite de ${MAX_SUBBOTS} subbots. Por favor, intenta más tarde.*`, l);
   }
 
   let user = conn;
@@ -284,7 +284,7 @@ let handler = async (msg, { conn, args, usedPrefix, command, isOwner }) => {
               isForwarded: true,
               forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363318758721861@newsletter', 
-                newsletterName: '᥊',
+                newsletterName: '',
                 serverMessageId: -1
               }
             }
