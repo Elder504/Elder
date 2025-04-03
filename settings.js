@@ -45,7 +45,7 @@ global.welcome = `╔════════════════╗\n┇➤
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.banner = 'https://i.ibb.co/5xMs19nx/file.jpg'
+global.banner = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI'
 global.botname = '𝗛𝗡 𝗘𝗟𝗗𝗘𝗥-𝗕𝗢𝗧'
 global.author = 'ᴄʀᴇᴀᴛᴏʀ | ᴇʟᴅᴇʀ-ʙᴏᴛ'
 global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ һᥒ ᥱᥣძᥱr'
