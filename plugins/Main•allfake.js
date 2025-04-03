@@ -58,7 +58,7 @@ global.waittt = 'Espere un momento...'
 global.waitttt = 'Espere un momento...'
 
 //Enlaces
-var mensaje = ' *👋🏻 Hola bienvenido al grupo* '  
+var mensaje = '👋🏻 *Hola bienvenido al grupo* '  
 var mensaje2 = ' *👋🏻 Seas bievenido al grupo* '
 var mensaje3 = ' *👋🏻 Nuevo integrante bienvenido* '
 var grupo = 'https://chat.whatsapp.com/KaDy99ZsNbeE0pA9nc5FXK'
