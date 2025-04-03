@@ -41,7 +41,7 @@ global.prefix = '.'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.welcome = `╔════════════════╗\n┇*➤HOLA,BIENVENIDO (A)*\n┇ +tag \n╚════════════════╝\n\n*Bienvenido al grupo, lea la descripción y cumpla con los requisitos para mantener tu estadía en el grupo*`
+global.welcome = `╔════════════════╗\n┇ *➤HOLA,BIENVENIDO (A)*\n┇ +tag \n╚════════════════╝\n\n*Bienvenido al grupo, lea la descripción y cumpla con los requisitos para mantener tu estadía en el grupo*`
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
