@@ -9,7 +9,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
   let chat = global.db.data.chats[m.chat];
 
-  if (chat.welcome && m.messageStubType == 27) {
+  7) {
     let welcome = global.welcome
       .replace('+tag', `@${m.messageStubParameters[0].split('@')[0]}`)
       .replace('+description', groupMetadata.desc || 'Sin descripción');
