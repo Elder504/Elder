@@ -19,10 +19,10 @@ export async function before(m, { conn, participants, groupMetadata }) {
         .resize({ width: 1000, height: 1000, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .toBuffer();
 
-      await conn.sendMini(m.chat, welcome, extendedImage, extendedImage);
+await conn.sendMessage(m.chat, { image: img, caption: welcome, mentions: [who] }, { quoted: estilo })
     } catch (error) {
       console.error('Error', error);
-      await conn.sendMini(m.chat, welcome, img, img);
+      await conn.sendMessage(m.chat, { image: img, caption: welcome, mentions: [who] }, { quoted: estilo })
     }
   }
 }
