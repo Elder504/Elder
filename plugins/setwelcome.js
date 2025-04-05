@@ -1,13 +1,25 @@
-let handler = async (m, { conn, text, isRowner }) => {
-  if (!text) {
-    return m.reply('*Opciones de bienvenida* 🍃 \n\n*+tag Menciona al usuario*\n\n*+description Descripcion del grupo*');
-  }
+// commands/setwelcome.js
 
-  global.welcome = text;
-  m.reply('*✦ El mensaje de bienvenida fue cambiado.*');
+const handler = async (m, { conn, text }) => {
+    if (!m.isGroup) {
+        await conn.sendMessage(m.chat, 'Este comando solo se puede usar en grupos.', { quoted: m });
+        return;
+    }
+
+    const chat = global.db.data.chats[m.chat];
+    const welcomeMessage = text.trim();
+
+    if (!welcomeMessage) {
+        await conn.sendMessage(m.chat, 'Por favor, proporciona un mensaje de bienvenida.', { quoted: m });
+        return;
+    }
+
+    chat.welcome = welcomeMessage;
+    await conn.sendMessage(m.chat, 'El mensaje de bienvenida ha sido actualizado.', { quoted: m });
 };
 
-handler.command = ['setwelcome'];
-handler.isAdmin = true;
+handler.command = /^(setwelcome)$/i;
+handler.tags = ['group'];
+handler.help = ['setwelcome <mensaje>'];
 
 export default handler;
