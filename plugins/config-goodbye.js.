@@ -1,0 +1,53 @@
+import { WAMessageStubType } from '@whiskeysockets/baileys';
+import fetch from 'node-fetch';
+import sharp from 'sharp';
+import fs from 'fs';
+
+const MAX_RETRIES = 3;
+
+async function sendMessageWithRetry(conn, chatId, message, options, retryCount = 0) {
+  try {
+    await conn.sendMessage(chatId, message, options);
+    console.log('Mensaje enviado con éxito');
+  } catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+
+    // Registrar el error en un archivo
+    fs.appendFileSync('error_log.txt', `${new Date().toISOString()} - Error al enviar el mensaje: ${error.message}\n`);
+
+    if (retryCount < MAX_RETRIES) {
+      console.log(`Reintentando... (${retryCount + 1}/${MAX_RETRIES})`);
+      await sendMessageWithRetry(conn, chatId, message, options, retryCount + 1);
+    } else {
+      console.error('Máximo de reintentos alcanzado. No se pudo enviar el mensaje.');
+    }
+  }
+}
+
+export async function before(m, { conn, participants, groupMetadata }) {
+  if (!m.messageStubType || !m.isGroup) return !0;
+  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60');
+  let img = await (await fetch(pp)).buffer();
+
+  let chat = global.db.data.chats[m.chat];
+
+  if (chat.goodbye && m.messageStubType == 28) { // 28 es el tipo de mensaje para salidas del grupo
+    let goodbye = `
+      🌟 @${m.messageStubParameters[0].split('@')[0]} ha salido del grupo ${groupMetadata.subject}. 🌟
+      
+      ¡Te deseamos lo mejor! 😊
+    `;
+
+    try {
+      const extendedImage = await sharp(img)
+        .resize({ width: 1200, height: 1200, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+        .toBuffer();
+
+      await sendMessageWithRetry(conn, m.chat, { image: extendedImage, caption: goodbye }, {});
+    } catch (error) {
+      console.error('Error al procesar la imagen:', error);
+      fs.appendFileSync('error_log.txt', `${new Date().toISOString()} - Error al procesar la imagen: ${error.message}\n`);
+      await sendMessageWithRetry(conn, m.chat, { image: img, caption: goodbye }, {});
+    }
+  }
+}
