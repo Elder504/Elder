@@ -12,7 +12,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (chat.welcome && m.messageStubType == 27) {
     let welcome = global.welcome
       .replace('+tag', `@${m.messageStubParameters[0].split('@')[0]}`)
-      .replace('+description', groupMetadata.desc || 'Sin descripción');
+      .replace('+description', groupMetadata.desc || 'Sin descripción')
+      .replace('+groupname', groupMetadata.subject || 'Grupo');  // Añadida esta línea
 
     try {
       const extendedImage = await sharp(img)
