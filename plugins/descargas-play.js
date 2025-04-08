@@ -106,7 +106,14 @@ let txt = `01:27 ━━━━━⬤────── 05:48\n*⇄ㅤ      ◁   
     }, { quoted: m });
 */
 
-conn.sendMessage(m.chat, { image: { url: videoImg }, caption: txt }, { quoted: m });
+conn.sendFile(m.chat, videoImg, 'Elder.jpg', txt, m, null);
+
+    let api = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${url}`);
+    let json = await api.json();
+    let { data } = json;
+    let { dl: download } = data;
+
+      await conn.sendMessage(m.chat, { audio: { url: download }, mimetype: 'audio/mpeg', fileName: `${title}.mp3` }, { quoted: m });
 
     await m.react('✅');
   } catch (e) {
