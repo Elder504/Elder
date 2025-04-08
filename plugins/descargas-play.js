@@ -108,7 +108,7 @@ let txt = `01:27 ━━━━━⬤────── 05:48\n*⇄ㅤ      ◁   
 
 conn.sendFile(m.chat, videoImg, 'Elder.jpg', txt, m, null);
 
-    let api = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${url}`);
+    let api = await fetch(`https://api.siputzx.my.id/api/d/ytmp3?url=${video.url}`);
     let json = await api.json();
     let { data } = json;
     let { dl: download } = data;
