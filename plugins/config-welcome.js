@@ -20,7 +20,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
         .toBuffer();
 
 //      await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
-await conn.sendMessage(m.chat, { image: { url: img }, caption: welcome }, { quoted: m });
+conn.sendFile(m.chat, img, 'Elder.jpg', welcome, m, null);
     } catch (error) {
       console.error('Error', error);
       await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
