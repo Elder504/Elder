@@ -41,8 +41,7 @@ global.prefix = '.'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-
-
+global.welcome = `
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.banner = 'https://cdnmega.vercel.app/media/9wB1HLrT@Jcn5yrz18NjokOpmyK-SS9u-OZc4SyK_2rsVxxQ6wXI'
