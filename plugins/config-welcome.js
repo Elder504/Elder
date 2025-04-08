@@ -12,12 +12,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (chat.welcome && m.messageStubType == 27) {
     let welcome = global.welcome
       .replace('+tag', `@${m.messageStubParameters[0].split('@')[0]}`)
-      .replace('+description', groupMetadata.desc || 'Sin descripción')
-      .replace('+groupname', groupMetadata.subject || 'Grupo');  // Añadida esta línea
+      .replace('+description', groupMetadata.desc || 'Sin descripción');
 
     try {
       const extendedImage = await sharp(img)
-        .resize({ width: 1500, height: 1500, fit: 'contain', background: { r: 100, g: 100, b: 100, alpha: 1000 } })
+        .resize({ width: 1800, height: 700, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .toBuffer();
 
       await conn.sendMini(m.chat, redes, dev, welcome, extendedImage, extendedImage, redeshost);
