@@ -10,11 +10,11 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let chat = global.db.data.chats[m.chat];
 
   if (chat.welcome && m.messageStubType == 27) {
-    let welcomeMessage = `Welcome to ${groupMetadata.subject}!`; // Ajusta el mensaje de bienvenida según tus necesidades
+    let welcomeMessage = `Welcome to ${groupMetadata.subject}!`;
 
     try {
       const extendedImage = await sharp(img)
-        .resize({ width: 1200, height: 500, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }) // Ajusta estos valores
+        .resize({ width: 800, height: 300, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }) // Ajusta estos valores
         .toBuffer();
 
       await conn.sendMini(m.chat, redes, dev, welcomeMessage, extendedImage, extendedImage, redeshost);
