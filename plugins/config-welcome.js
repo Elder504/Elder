@@ -16,7 +16,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     try {
       const extendedImage = await sharp(img)
-        .resize({ width: 1500, height: 1200, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+        .resize({ width: 1500, height: 1200, fit: 'contain', background: { r: 10, g: 20, b: 30, alpha: 40 } })
         .toBuffer();
 
       await conn.sendMini(m.chat, redes, dev, welcome, extendedImage, extendedImage, redeshost);
