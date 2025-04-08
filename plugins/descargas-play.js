@@ -81,7 +81,7 @@ let handler = async (m, { conn, args }) => {
     txt += `*\`Url:\`* ${video.url}\n\n`;
 */
 
-let txt = `01:27 ━━━━━⬤────── 05:48\n*⇄ㅤ      ◁        ❚❚        ▷        ↻*`;
+let txt = `01:27 ━━━━━⬤────── 05:48\n*⇄ㅤ      ◁        ❚❚        ▷        ↻*\n\n*HN ELDER-BOT*`;
 
     await conn.sendMessage(m.chat, {
       image: videoImg,
