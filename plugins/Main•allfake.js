@@ -57,6 +57,15 @@ global.waitt = 'Espere un momento...'
 global.waittt = 'Espere un momento...'
 global.waitttt = 'Espere un momento...'
 
+//Enlaces
+var mensaje = '👋🏻 𝗛𝗼𝗹𝗮, 𝗯𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼 𝗮𝗹 𝗴𝗿𝘂𝗽𝗼'  
+var mensaje2 = '👋🏻 𝗦𝗲𝗮𝘀 𝗯𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼 𝗮𝗹 𝗴𝗿𝘂𝗽𝗼'
+var mensaje3 = '👋🏻 𝗡𝘂𝗲𝘃𝗼 𝗶𝗻𝘁𝗲𝗴𝗿𝗮𝗻𝘁𝗲, 𝗯𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼'
+
+global.redes = [mensaje, mensaje2, mensaje3].getRandom()
+
+global.redeshost = [grupo].getRandom()
+
 //Imagen
 let category = "imagen"
 const db = './src/database/db.json'
