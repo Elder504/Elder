@@ -83,7 +83,7 @@ let handler = async (m, { conn, args }) => {
 
 let txt = `01:27 ━━━━━⬤────── 05:48\n*⇄ㅤ      ◁        ❚❚        ▷        ↻*\n\n*HN ELDER-BOT*`;
 
-    await conn.sendMessage(m.chat, {
+/*    await conn.sendMessage(m.chat, {
       image: videoImg,
       caption: txt,
       footer: 'Selecciona una opción',
@@ -104,6 +104,9 @@ let txt = `01:27 ━━━━━⬤────── 05:48\n*⇄ㅤ      ◁   
       viewOnce: true,
       headerType: 4,
     }, { quoted: m });
+*/
+
+conn.sendMessage(m.chat, { image: { url: videoImg }, caption: txt }, { quoted: m });
 
     await m.react('✅');
   } catch (e) {
