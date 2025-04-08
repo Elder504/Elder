@@ -1,18 +1,40 @@
-def create_teams(players):
-    """
-    Divide a lista de jogadores em duas equipes de 4 jogadores cada.
-    """
-    if len(players) != 8:
-        raise ValueError("É necessário exatamente 8 jogadores para criar equipes 4vs4.")
-    
-    team1 = players[:4]
-    team2 = players[4:]
-    
-    return team1, team2
+import fetch from 'node-fetch';
+import yts from 'yt-search';
 
-players = ["Player1", "Player2", "Player3", "Player4", "Player5", "Player6", "Player7", "Player8"]
+let handler = async (m, { conn, text, args }) => {
+  if (!text) {
+    return m.reply("❀ Ingresa un texto de lo que quieres buscar");
+  }
 
-team1, team2 = create_teams(players)
+  let ytres = await search(args.join(" "));
+  if (ytres.length === 0) {
+    return m.reply("❀ No se encontraron resultados");
+  }
 
-print("Equipe 1:", team1)
-print("Equipe 2:", team2)
+  try {
+    let apiResponse = await fetch(`https://api.vreden.web.id/api/ytplaymp4?query=${ytres[0].url}&apikey=0a2cc90e`);
+    let json = await apiResponse.json();
+
+    if (json.result && json.result.download && json.result.download.url) {
+      let { title, url: mp4 } = json.result.download;
+
+      await conn.sendMessage(m.chat, { video: { url: mp4 }, caption: `*❀ ${botname}:*`, mimetype: 'video/mp4', fileName: `${botname} - ${title}.mp4` }, { quoted: m });
+
+      await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
+    } else {
+      throw new Error('La API no devolvió los datos esperados.');
+    }
+  } catch (error) {
+    console.error(error);
+    m.reply("❀ Ocurrió un error al intentar descargar el video");
+  }
+};
+
+handler.command = /^(ytdlmp4)$/i;
+
+export default handler;
+
+async function search(query, options = {}) {
+  let searchResults = await yts.search({ query, hl: "es", gl: "ES", ...options });
+  return searchResults.videos;
+}
