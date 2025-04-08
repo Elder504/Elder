@@ -19,7 +19,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
         .resize({ width: 1800, height: 700, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .toBuffer();
 
-      await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
+//      await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
+await conn.sendMessage(m.chat, { image: img }, caption: welcome }, { quoted: m });
     } catch (error) {
       console.error('Error', error);
       await conn.sendMini(m.chat, redes, dev, welcome, img, img, redeshost);
