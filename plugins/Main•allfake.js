@@ -64,8 +64,6 @@ var mensaje3 = '👋🏻 𝗡𝘂𝗲𝘃𝗼 𝗶𝗻𝘁𝗲𝗴𝗿𝗮𝗻�
 
 global.redes = [mensaje, mensaje2, mensaje3].getRandom()
 
-global.redeshost = [grupo].getRandom()
-
 //Imagen
 let category = "imagen"
 const db = './src/database/db.json'
