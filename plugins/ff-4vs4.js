@@ -1,6 +1,6 @@
-let handler = async (m, { conn, args, command, usedPrefix }) => {
-  // Verificar si se proporcionaron argumentos
-  if (args.length < 3) throw `
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+  // Validar si se proporcionaron argumentos
+  if (args.length === 0) throw `
 📢 𝟒 𝐕𝐒 𝟒 - 𝐅𝐑𝐄𝐄 𝐅𝐈𝐑𝐄
 
 ✏️ Uso del comando:
@@ -14,16 +14,16 @@ ${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2, Jugador
 - <jugadores>: Lista de jugadores separados por comas (mínimo 4, máximo 6 incluyendo suplentes).
 `;
 
-  // Separar la entrada en partes
+  // Dividir los argumentos en partes
   const input = args.join(' ').split('|').map(v => v.trim());
-  if (input.length < 3) throw `⚠️ Proporciona todos los datos requeridos: hora, modalidad y jugadores.`;
+  if (input.length < 3) throw `⚠️ Proporciona todos los datos requeridos: hora, modalidad y jugadores.\nEjemplo: ${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2, Jugador3`;
 
-  const [hora, modalidad, jugadoresRaw] = input;
-  const jugadores = jugadoresRaw.split(',').map(v => v.trim());
+  const [hora, modalidad, jugadoresRaw] = input; // Hora, Modalidad, Lista de jugadores
+  const jugadores = jugadoresRaw.split(',').map(v => v.trim()); // Lista de jugadores separados por comas
 
   if (jugadores.length < 4) throw `⚠️ Debes proporcionar al menos 4 jugadores.\nEjemplo: ${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2, Jugador3`;
 
-  // Formatear el mensaje
+  // Generar el mensaje dinámico
   const mensaje = `
 🎮 𝟒 𝐕𝐒 𝟒 - 𝐅𝐑𝐄𝐄 𝐅𝐈𝐑𝐄 🎮
 
@@ -46,7 +46,7 @@ ${jugadores[4] ? `🥷 Suplente 1: ${jugadores[4]}` : '🥷 Suplente 1: Vacante'
 ${jugadores[5] ? `🥷 Suplente 2: ${jugadores[5]}` : '🥷 Suplente 2: Vacante'}
 `;
 
-  // Enviar el mensaje formateado
+  // Enviar el mensaje al chat
   await conn.sendMessage(m.chat, { text: mensaje }, { quoted: m });
 };
 
@@ -54,7 +54,7 @@ ${jugadores[5] ? `🥷 Suplente 2: ${jugadores[5]}` : '🥷 Suplente 2: Vacante'
 handler.help = ['4vs4'];
 handler.tags = ['freefire'];
 handler.command = /^(4vs4|ff4vs4|vs4)$/i;
-handler.group = true; // Solo se permite en grupos
+handler.group = true; // Solo en grupos
 handler.admin = true; // Solo administradores pueden usarlo
 
 export default handler;
