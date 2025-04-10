@@ -1,19 +1,33 @@
-// By WillZek Para CrowBot
- 
-let handler = async(m, { conn }) => {
+import fg from 'api-dylux' 
+import fetch from 'node-fetch'
+import axios from 'axios'
+let handler = async (m, { conn, args, command, usedPrefix }) => {
+if (!args[0]) throw `
+𝟒 𝐕𝐄𝐑𝐒𝐔𝐒 𝟒
 
-let vs = `🗣️ 𝗩𝗔𝗠𝗢𝗦 𝗔 𝗖𝗢𝗠𝗣𝗘\n\n`
-    vs += `💫 *𝐄𝐒𝐂𝐔𝐀𝐃𝐑𝐀*:\n`
-    vs += `👑 ┇\n🥷🏻 ┇\n🥷🏻 ┇\n🥷🏻 ┇\n`
-    vs += `💫 *𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒*:\n`
-    vs += `🥷🏻 ┇\n🥷🏻 ┇\n`
-    vs += `🍨 ${dev}`
+⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎                       •
+🇲🇽 𝐌𝐄𝐗𝐈𝐂𝐎 : 
+🇨🇴 𝐂𝐎𝐋𝐎𝐌𝐁𝐈𝐀 :                
 
-let vsimg = 'https://files.catbox.moe/ev7gjp.jpg';
+➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: 
+➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
 
-conn.sendMessage(m.chat, { image: { url: vsimg }, caption: vs }, { quoted: m });
+      𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
+    
+    👑 ┇ 
+    🥷🏻 ┇  
+    🥷🏻 ┇ 
+    🥷🏻 ┇  
+    
+    ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
+    🥷🏻 ┇ 
+    🥷🏻 ┇
+                 
+` 
 }
-
-handler.command = ['4vs4'];
-
+handler.help = ['4vs4']
+handler.tags = ['freefire']
+handler.command = /^(vs4|4vs4|masc4)$/i
+handler.group = true
+handler.admin = true
 export default handler
