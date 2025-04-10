@@ -1,37 +1,22 @@
-import fg from 'api-dylux';
-import fetch from 'node-fetch';
-import axios from 'axios';
-
 let handler = async (m, { conn, args, command, usedPrefix }) => {
   // Verificar si se proporcionaron argumentos
-  if (!args[0]) throw `
-📢 𝟒 𝐕𝐄𝐑𝐒𝐔𝐒 𝟒
+  if (args.length < 3) throw `
+📢 𝟒 𝐕𝐒 𝟒 - 𝐅𝐑𝐄𝐄 𝐅𝐈𝐑𝐄
 
-⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎
-🇲🇽 𝐌𝐄𝐗𝐈𝐂𝐎 : [Indica la hora]
-🇨🇴 𝐂𝐎𝐋𝐎𝐌𝐁𝐈𝐀 : [Indica la hora]
+✏️ Uso del comando:
+${usedPrefix}${command} <hora> | <modalidad> | <jugadores>
+Ejemplo:
+${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2, Jugador3, Suplente1, Suplente2
 
-➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: [Indica la modalidad]
-➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
-
-𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1:
-👑 ┇ Capitán
-🥷🏻 ┇ Integrante 1
-🥷🏻 ┇ Integrante 2
-🥷🏻 ┇ Integrante 3
-
-ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
-🥷🏻 ┇ Suplente 1
-🥷🏻 ┇ Suplente 2
-
-✏️ Usa el comando de la forma:
-${usedPrefix}${command} [hora] | [modalidad] | [jugadores]
-Ejemplo: ${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2, Jugador3
+📝 Detalles:
+- <hora>: Hora de la partida (ejemplo: 20:00)
+- <modalidad>: Modalidad de la partida (ejemplo: Clásico o Competitivo)
+- <jugadores>: Lista de jugadores separados por comas (mínimo 4, máximo 6 incluyendo suplentes).
 `;
 
-  // Procesar los argumentos
+  // Separar la entrada en partes
   const input = args.join(' ').split('|').map(v => v.trim());
-  if (input.length < 3) throw `⚠️ Debes proporcionar todos los datos: hora, modalidad y jugadores.\nEjemplo: ${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2, Jugador3`;
+  if (input.length < 3) throw `⚠️ Proporciona todos los datos requeridos: hora, modalidad y jugadores.`;
 
   const [hora, modalidad, jugadoresRaw] = input;
   const jugadores = jugadoresRaw.split(',').map(v => v.trim());
@@ -40,34 +25,36 @@ Ejemplo: ${usedPrefix}${command} 20:00 | Clásico | Capitán, Jugador1, Jugador2
 
   // Formatear el mensaje
   const mensaje = `
-📢 𝟒 𝐕𝐒 𝟒
+🎮 𝟒 𝐕𝐒 𝟒 - 𝐅𝐑𝐄𝐄 𝐅𝐈𝐑𝐄 🎮
 
-⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎
-🇲🇽 𝐌𝐄𝐗𝐈𝐂𝐎: ${hora}
-🇨🇴 𝐂𝐎𝐋𝐎𝐌𝐁𝐈𝐀: [Convierte la hora si es necesario]
+⏱ 𝐇𝐎𝐑𝐀:
+${hora}
 
-➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: ${modalidad}
-➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
+🎯 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃:
+${modalidad}
+
+👥 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
 
 𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1:
-👑 ┇ ${jugadores[0]} (Capitán)
-🥷🏻 ┇ ${jugadores[1]}
-🥷🏻 ┇ ${jugadores[2]}
-🥷🏻 ┇ ${jugadores[3]}
+👑 Capitán: ${jugadores[0]}
+🥷 Jugador 1: ${jugadores[1]}
+🥷 Jugador 2: ${jugadores[2]}
+🥷 Jugador 3: ${jugadores[3]}
 
 ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
-${jugadores[4] ? `🥷🏻 ┇ ${jugadores[4]}` : '🥷🏻 ┇ Vacante'}
-${jugadores[5] ? `🥷🏻 ┇ ${jugadores[5]}` : '🥷🏻 ┇ Vacante'}
+${jugadores[4] ? `🥷 Suplente 1: ${jugadores[4]}` : '🥷 Suplente 1: Vacante'}
+${jugadores[5] ? `🥷 Suplente 2: ${jugadores[5]}` : '🥷 Suplente 2: Vacante'}
 `;
 
-  // Enviar el mensaje
+  // Enviar el mensaje formateado
   await conn.sendMessage(m.chat, { text: mensaje }, { quoted: m });
 };
 
+// Configuración del comando
 handler.help = ['4vs4'];
 handler.tags = ['freefire'];
-handler.command = /^(vs4|4vs4|masc4)$/i;
-handler.group = true; // Solo en grupos
-handler.admin = true; // Solo para admins
+handler.command = /^(4vs4|ff4vs4|vs4)$/i;
+handler.group = true; // Solo se permite en grupos
+handler.admin = true; // Solo administradores pueden usarlo
 
 export default handler;
